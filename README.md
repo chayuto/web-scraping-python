@@ -9,10 +9,13 @@ Selenium can be installed using pip using the command 'pip install selenium'.
 
 
 pip install beautifulsoup4
+pip3 install beautifulsoup4
 
 pip install selenium
+pip3 install selenium
 
 pip install webdriver-manager
+pip3 install webdriver-manager
 
 from webdriver_manager.chrome import ChromeDriverManager
 driver = webdriver.Chrome(ChromeDriverManager().install())
