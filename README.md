@@ -1,0 +1,23 @@
+
+you will need to install the Selenium Python library and place a ChromeDriver executable on your path.
+
+You will also need to have Chrome installed.
+
+It may also work with Chromium but we have not tested this.
+
+Selenium can be installed using pip using the command 'pip install selenium'.
+
+
+pip install beautifulsoup4
+
+pip install selenium
+
+pip install webdriver-manager
+
+from webdriver_manager.chrome import ChromeDriverManager
+driver = webdriver.Chrome(ChromeDriverManager().install())
+
+# REF
+
+###
+https://github.com/amirbehzad/grocery-prices
