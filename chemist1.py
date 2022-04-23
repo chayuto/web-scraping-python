@@ -1,4 +1,6 @@
 import time
+import requests
+import re
 # Web scraping library
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -21,6 +23,22 @@ while has_next_page:
         #item.find(class_="product__title")
         print(item.find(class_="product__title").text)
         print(item.find(class_="product__price-current").text)
+        product_name = item.find(class_="product__title").text
+        price_str = item.find(class_="product__price-current").text
+
+        number_strs = re.findall("\d+\.\d+", price_str)
+        price = float(number_strs[0])
+
+        # # Sync
+        payload = {
+            "product_name": product_name,
+            "supplier_name": "ChemistWarehouse",
+            "price": price
+            }
+        url = "http://localhost:3000/api/products/market_data"
+        response = requests.post(url, json= payload)
+
+
         
     next_button = None
     try:
