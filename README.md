@@ -17,6 +17,9 @@ pip3 install selenium
 pip install webdriver-manager
 pip3 install webdriver-manager
 
+pip install undetected-chromedriver
+pip3 install undetected-chromedriver
+
 from webdriver_manager.chrome import ChromeDriverManager
 driver = webdriver.Chrome(ChromeDriverManager().install())
 
