@@ -4,10 +4,13 @@ import re
 # Web scraping library
 from selenium import webdriver
 from bs4 import BeautifulSoup
-
-base_url = 'https://www.chemistwarehouse.com.au/shop-online/587/swisse'
-
 from webdriver_manager.chrome import ChromeDriverManager
+
+# base_url = 'https://www.chemistwarehouse.com.au/shop-online/587/swisse'
+# base_url = 'https://www.chemistwarehouse.com.au/shop-online/850/garnier-fructis'
+base_url = 'https://www.chemistwarehouse.com.au/shop-online/5571/john-frieda-haircare'
+
+
 driver = webdriver.Chrome(ChromeDriverManager().install())
 
 browser = driver
