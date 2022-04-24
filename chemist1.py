@@ -13,8 +13,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/2367/vicks-cold-flu'
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/2104/vicks-vapodrops'
 
-# base_url = 'https://www.chemistwarehouse.com.au/shop-online/5286/clairol-natural-instincts'
-base_url = 'https://www.chemistwarehouse.com.au/shop-online/2203/nivea-body'
+base_url = 'https://www.chemistwarehouse.com.au/shop-online/5286/clairol-natural-instincts'
+# base_url = 'https://www.chemistwarehouse.com.au/shop-online/2203/nivea-body'
 
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
