@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/587/swisse'
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/850/garnier-fructis'
-# base_url = 'https://www.chemistwarehouse.com.au/shop-online/5571/john-frieda-haircare'
+base_url = 'https://www.chemistwarehouse.com.au/shop-online/5571/john-frieda-haircare'
 
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/2367/vicks-cold-flu'
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/2104/vicks-vapodrops'
@@ -17,7 +17,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/2203/nivea-body'
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/2368/voost'
 # base_url = 'https://www.chemistwarehouse.com.au/shop-online/4458/duit-foot-care'
-base_url = 'https://www.chemistwarehouse.com.au/shop-online/4717/duit-hand-cream'
+# base_url = 'https://www.chemistwarehouse.com.au/shop-online/4717/duit-hand-cream'
 
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -37,6 +37,7 @@ while has_next_page:
         print(item.find(class_="product__price-current").text)
         product_name = item.find(class_="product__title").text
         price_str = item.find(class_="product__price-current").text
+        image_url = item.find(class_="product__image-main")['src']
 
         number_strs = re.findall("\d+\.\d+", price_str)
         price = float(number_strs[0])
@@ -45,7 +46,8 @@ while has_next_page:
         payload = {
             "product_name": product_name,
             "supplier_name": "ChemistWarehouse",
-            "price": price
+            "price": price,
+            "image_url": image_url
             }
         url = "http://localhost:3000/api/products/market_data"
         response = requests.post(url, json= payload)
