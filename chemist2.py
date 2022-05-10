@@ -22,6 +22,15 @@ urls = [
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 
+brands = ["Starburst",
+ "Swisse",
+ "Nivea",
+ "John Frieda",
+ "Clairol",
+ "Mitchum",
+ "Starbucks",
+ "Voost"]
+
 for base_url in urls:
     driver.get(base_url)
 
@@ -41,6 +50,11 @@ for base_url in urls:
 
             number_strs = re.findall("\d+\.\d+", price_str)
             price = float(number_strs[0])
+            product_brand = None
+            for brand in brands:
+                if (brand in product_name):
+                    print(brand)
+                    product_brand = brand
 
             # # Sync
             payload = {
@@ -49,6 +63,9 @@ for base_url in urls:
                 "price": price,
                 "image_url": image_url
                 }
+            if product_brand != None:
+                payload["brand"] = product_brand
+
             url = "http://localhost:3000/api/products/market_data"
             response = requests.post(url, json= payload)
 
