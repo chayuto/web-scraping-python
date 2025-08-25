@@ -1,4 +1,7 @@
 
+Scrape Supermarket (Coles, Priceline, ChemistWarehouse) for price updates
+
+
 you will need to install the Selenium Python library and place a ChromeDriver executable on your path.
 
 You will also need to have Chrome installed.
